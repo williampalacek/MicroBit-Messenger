@@ -4,7 +4,9 @@ radio.onReceivedNumber(function (receivedNumber) {
         Received_effect()
         basic.showIcon(IconNames.Heart)
         basic.pause(1000)
-        RunCycle = true
+        if (Strength_run == false) {
+            RunCycle = true
+        }
     } else if (receivedNumber == 1) {
         RunCycle = false
         Received_effect()
@@ -16,7 +18,9 @@ radio.onReceivedNumber(function (receivedNumber) {
             . # # # .
             `)
         basic.pause(1000)
-        RunCycle = true
+        if (Strength_run == false) {
+            RunCycle = true
+        }
     } else if (receivedNumber == 2) {
         RunCycle = false
         Received_effect()
@@ -28,7 +32,9 @@ radio.onReceivedNumber(function (receivedNumber) {
             # . . . #
             `)
         basic.pause(1000)
-        RunCycle = true
+        if (Strength_run == false) {
+            RunCycle = true
+        }
     } else if (receivedNumber == 3) {
         RunCycle = false
         Received_effect()
@@ -40,7 +46,9 @@ radio.onReceivedNumber(function (receivedNumber) {
             . . . . .
             `)
         basic.pause(1000)
-        RunCycle = true
+        if (Strength_run == false) {
+            RunCycle = true
+        }
     }
 })
 input.onButtonPressed(Button.A, function () {
