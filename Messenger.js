@@ -1,58 +1,66 @@
 radio.onReceivedNumber(function (receivedNumber) {
-    if (!(Strength_run)) {
-        if (receivedNumber == 0) {
-            RunCycle = false
-            Received_effect()
-            basic.showIcon(IconNames.Heart)
-            basic.pause(1000)
+    if (receivedNumber == 0) {
+        RunCycle = false
+        Received_effect()
+        basic.showIcon(IconNames.Heart)
+        basic.pause(1000)
+        if (Strength_run == false) {
             RunCycle = true
-        } else if (receivedNumber == 1) {
-            RunCycle = false
-            Received_effect()
-            basic.showLeds(`
-                . . . . .
-                . # . # .
-                . . . . .
-                # . . . #
-                . # # # .
-                `)
-            basic.pause(1000)
+        }
+    } else if (receivedNumber == 1) {
+        RunCycle = false
+        Received_effect()
+        basic.showLeds(`
+            . . . . .
+            . # . # .
+            . . . . .
+            # . . . #
+            . # # # .
+            `)
+        basic.pause(1000)
+        if (Strength_run == false) {
             RunCycle = true
-        } else if (receivedNumber == 2) {
-            RunCycle = false
-            Received_effect()
-            basic.showLeds(`
-                . . . . .
-                . # . # .
-                . . . . .
-                . # # # .
-                # . . . #
-                `)
-            basic.pause(1000)
+        }
+    } else if (receivedNumber == 2) {
+        RunCycle = false
+        Received_effect()
+        basic.showLeds(`
+            . . . . .
+            . # . # .
+            . . . . .
+            . # # # .
+            # . . . #
+            `)
+        basic.pause(1000)
+        if (Strength_run == false) {
             RunCycle = true
-        } else if (receivedNumber == 3) {
-            RunCycle = false
-            Received_effect()
-            basic.showLeds(`
-                . . . . .
-                . # . # .
-                . . . . .
-                . # # # .
-                . . . . .
-                `)
-            basic.pause(1000)
+        }
+    } else if (receivedNumber == 3) {
+        RunCycle = false
+        Received_effect()
+        basic.showLeds(`
+            . . . . .
+            . # . # .
+            . . . . .
+            . # # # .
+            . . . . .
+            `)
+        basic.pause(1000)
+        if (Strength_run == false) {
             RunCycle = true
-        } else if (receivedNumber == 4) {
-            RunCycle = false
-            Received_effect()
-            basic.showLeds(`
-                # . . . #
-                . # . # .
-                . . . . .
-                # # # # #
-                . . . . .
-                `)
-            basic.pause(1000)
+        }
+    } else if (receivedNumber == 4) {
+        RunCycle = false
+        Received_effect()
+        basic.showLeds(`
+            # . . . #
+            . # . # .
+            . . . . .
+            # # # # #
+            . . . . .
+            `)
+        basic.pause(1000)
+        if (Strength_run == false) {
             RunCycle = true
         }
     }
