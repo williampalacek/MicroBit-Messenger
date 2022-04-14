@@ -75,6 +75,24 @@ function Received_effect () {
 function radioTransmit (num: number) {
     radio.sendNumber(num)
 }
+input.onButtonPressed(Button.AB, function () {
+    if (Strength_run) {
+        Strength_run = false
+        RunCycle = true
+    } else if (Strength_run == false) {
+        Strength_run = true
+        RunCycle = false
+    }
+})
+radio.onReceivedString(function (receivedString) {
+    if (Strength_run) {
+        signal = radio.receivedPacket(RadioPacketProperty.SignalStrength)
+        led.plotBarGraph(
+        Math.map(signal, -95, -42, 0, 9),
+        9
+        )
+    }
+})
 input.onButtonPressed(Button.B, function () {
     B += 1
 })
@@ -83,6 +101,8 @@ function Sent () {
     basic.showString("Sent")
     B = 0
 }
+let signal = 0
+let Strength_run = false
 let RunCycle = false
 let B = 0
 radio.setGroup(69)
@@ -91,7 +111,9 @@ radio.setTransmitPower(7)
 let A = 0
 B = 0
 RunCycle = true
+Strength_run = false
 basic.forever(function () {
+    radio.sendString("")
     if (RunCycle) {
         if (A == 0) {
             basic.showIcon(IconNames.Heart)
