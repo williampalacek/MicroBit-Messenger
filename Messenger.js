@@ -1,58 +1,64 @@
 radio.onReceivedNumber(function (receivedNumber) {
-    if (receivedNumber == 0) {
-        RunCycle = false
-        Received_effect()
-        basic.showIcon(IconNames.Heart)
-        basic.pause(1000)
-        if (Strength_run == false) {
+    if (!(Strength_run)) {
+        if (receivedNumber == 0) {
+            RunCycle = false
+            Received_effect()
+            basic.showIcon(IconNames.Heart)
+            basic.pause(1000)
             RunCycle = true
-        }
-    } else if (receivedNumber == 1) {
-        RunCycle = false
-        Received_effect()
-        basic.showLeds(`
-            . . . . .
-            . # . # .
-            . . . . .
-            # . . . #
-            . # # # .
-            `)
-        basic.pause(1000)
-        if (Strength_run == false) {
+        } else if (receivedNumber == 1) {
+            RunCycle = false
+            Received_effect()
+            basic.showLeds(`
+                . . . . .
+                . # . # .
+                . . . . .
+                # . . . #
+                . # # # .
+                `)
+            basic.pause(1000)
             RunCycle = true
-        }
-    } else if (receivedNumber == 2) {
-        RunCycle = false
-        Received_effect()
-        basic.showLeds(`
-            . . . . .
-            . # . # .
-            . . . . .
-            . # # # .
-            # . . . #
-            `)
-        basic.pause(1000)
-        if (Strength_run == false) {
+        } else if (receivedNumber == 2) {
+            RunCycle = false
+            Received_effect()
+            basic.showLeds(`
+                . . . . .
+                . # . # .
+                . . . . .
+                . # # # .
+                # . . . #
+                `)
+            basic.pause(1000)
             RunCycle = true
-        }
-    } else if (receivedNumber == 3) {
-        RunCycle = false
-        Received_effect()
-        basic.showLeds(`
-            . . . . .
-            . # . # .
-            . . . . .
-            . # # # .
-            . . . . .
-            `)
-        basic.pause(1000)
-        if (Strength_run == false) {
+        } else if (receivedNumber == 3) {
+            RunCycle = false
+            Received_effect()
+            basic.showLeds(`
+                . . . . .
+                . # . # .
+                . . . . .
+                . # # # .
+                . . . . .
+                `)
+            basic.pause(1000)
+            RunCycle = true
+        } else if (receivedNumber == 4) {
+            RunCycle = false
+            Received_effect()
+            basic.showLeds(`
+                # . . . #
+                . # . # .
+                . . . . .
+                # # # # #
+                . . . . .
+                `)
+            basic.pause(1000)
             RunCycle = true
         }
     }
 })
-input.onButtonPressed(Button.A, function () {
-    A += 1
+input.onGesture(Gesture.EightG, function () {
+    radioTransmit(4)
 })
 function Received_effect () {
     basic.showLeds(`
@@ -80,6 +86,9 @@ function Received_effect () {
         `)
     basic.pause(100)
 }
+input.onButtonPressed(Button.A, function () {
+    A += 1
+})
 function radioTransmit (num: number) {
     radio.sendNumber(num)
 }
@@ -110,13 +119,13 @@ function Sent () {
     B = 0
 }
 let signal = 0
+let A = 0
 let Strength_run = false
 let RunCycle = false
 let B = 0
 radio.setGroup(69)
 radio.setFrequencyBand(0)
 radio.setTransmitPower(7)
-let A = 0
 B = 0
 RunCycle = true
 Strength_run = false
